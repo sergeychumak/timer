@@ -21,6 +21,7 @@ export default {
     color: white;
     font-weight: bold;
     position: relative;
+    text-align: center;
 
     &:after {
       content: "";

@@ -1,6 +1,6 @@
 <template>
   <app-counter-view
-    class="timer"
+    class="sm-timer timer"
     :total-second="totalSecond"
     :passed-second="passedSecond"
   >
@@ -26,7 +26,7 @@ import { useOptions } from '@/services/state/options.ts'
 const { timerOn, methodsOptions } = useOptions()
 
 export default {
-  name: 'timer',
+  name: 'sm-timer',
   setup () {
     return {
       timerToggle: () => {

@@ -33,7 +33,6 @@ export default {
     padding: 15px 20px 20px 20px;
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
 
     & > .app-logo {
       flex-grow: 1;

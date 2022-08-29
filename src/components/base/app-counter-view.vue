@@ -5,21 +5,15 @@
       viewBox="0 0 218 218"
       preserveAspectRatio="xMidYMid meet"
     >
-<!--      <linearGradient id="gradient">-->
-<!--        <stop offset="0" stop-color="gold"></stop>-->
-<!--        <stop offset="30%" stop-color="red"></stop>-->
-<!--        <stop offset="60%" stop-color="darkviolet"></stop>-->
-<!--        <stop offset="100%" stop-color="deepskyblue"></stop>-->
-<!--      </linearGradient>-->
-
       <circle
-        class="app-counter-view__bg"
-        :cx="CX"
-        :cy="CY"
-        :r="R"
-        fill="url(#gradient)"
-        stroke="url(#gradient)"
+          class="app-counter-view__line-bg"
+          :class="classExtendLine"
+          :cx="CX"
+          :cy="CY"
+          :r="R"
+          stroke-dasharray = "4"
       />
+
       <circle
         class="app-counter-view__line"
         :class="classExtendLine"
@@ -101,16 +95,17 @@ export default {
     &__line {
       stroke: white;
       fill: transparent;
-      stroke-width: 4px;
+      stroke-width: 5px;
       stroke-linecap: round;
       transition: all 200ms linear 0s;
-      //opacity: .5;
+    }
 
-      &--p-50 { stroke: blue; opacity: .6;}
-      &--p-60 { stroke: blue; opacity: .7; }
-      &--p-70 { stroke: blue; opacity: .8; }
-      &--p-80 { stroke: blue; opacity: .9; }
-      &--p-90 { stroke: red; opacity: 1; }
+    &__line-bg {
+      stroke: black;
+      fill: transparent;
+      stroke-width: 1px;
+      stroke-linecap: round;
+      opacity: .1;
     }
 
     &__content {
