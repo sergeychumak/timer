@@ -8,8 +8,8 @@
       class="timer__counter"
       :second="remainderSecond"
     />
-    <template v-slot:buttons>
-      <app-button @click="timerToggle" :active="active"/>
+    <template v-slot:buttons v-if="!active">
+      <app-button :class="classObject" @click="timerToggle" :active="active"/>
     </template>
   </app-counter-view>
 </template>
@@ -20,18 +20,29 @@ import AppCounter from '@/components/base/app-counter'
 import AppButton from '@/components/base/app-button'
 
 // use
-import { useOptions } from '@/services/state/options.ts'
+import { useTimer } from '@/services/state/timer.ts'
+import {useUser} from "@/services/state/user.ts";
+import {computed} from "vue";
+
 
 // const
-const { timerOn, methodsOptions } = useOptions()
+const { methodsTimer } = useTimer()
+const { activeUser } = useUser()
 
 export default {
   name: 'sm-timer',
   setup () {
     return {
+      // activeUser,
       timerToggle: () => {
-        methodsOptions.setTimerOn(!timerOn.value)
-      }
+        methodsTimer.toggleTimerOn()
+      },
+      classObject: computed(() => {
+        return {
+          'bg-gradient-b': activeUser.value === 1,
+          'bg-gradient-a': activeUser.value === 2,
+        }
+      }),
     }
   },
   components: {

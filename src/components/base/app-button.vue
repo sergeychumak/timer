@@ -1,5 +1,5 @@
 <template>
-  <div class="app-button" :class="{'app-button--active': active}">
+  <div class="app-button noselect" :class="{'app-button--active': active}">
     <template v-if="active">
       <span class="icon">
         <i class="mdi mdi-stop mdi-24px"></i>
@@ -30,7 +30,7 @@ export default {
 <style lang="scss">
   .app-button {
     padding: 6px 20px;
-    background-color: green;
+    //background-color: green;
     border-radius: 6px;
     margin: 0 10px;
     display: flex;
@@ -48,7 +48,7 @@ export default {
     0 32px 32px rgba(0,0,0,0.02);
 
     transition: all 200ms linear 0s;
-    opacity: .5;
+    //opacity: .5;
 
     & > span {
       margin-right: 10px;
@@ -56,13 +56,13 @@ export default {
       margin-top: 1px;
     }
 
-    &:hover {
-      opacity: .75;
-    }
+    //&:hover {
+    //  opacity: .75;
+    //}
 
-    &--active {
-      background-color: red;
-      opacity: .75;
-    }
+    //&--active {
+    //  background-color: red;
+    //  opacity: .75;
+    //}
   }
 </style>

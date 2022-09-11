@@ -1,13 +1,13 @@
 <template>
   <div class="app-logo">
-    Я<span class="bg-gradient-b">IT</span>Ы
+    Я<span>IT</span>Ы
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'app-logo'
+  name: 'app-logo',
 }
 </script>
 
@@ -17,12 +17,14 @@ export default {
     font-weight: bold;
 
     & > span {
-      font-size: 18px;
+      font-size: 20px;
       padding: 10px;
-      color: white;
+      color: cornflowerblue;
       border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
       animation: morphing 5s infinite;
       overflow: hidden;
+      background-color: white;
+      margin: 0 5px;
     }
   }
 </style>
