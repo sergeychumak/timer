@@ -23,7 +23,7 @@ export default {
       border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
       animation: morphing 5s infinite;
       overflow: hidden;
-      background-color: white;
+      background-color: rgba(0, 87, 255, 0.1);
       margin: 0 5px;
     }
   }

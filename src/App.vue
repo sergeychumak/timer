@@ -1,6 +1,22 @@
 <template>
   <div class="app">
     <sm-header/>
+    jhgf
+    <div class="app__content">
+      <template v-if="!duelIsOn">
+        Добро пожаловать
+        <p>Оппонент #1</p>
+        <input type="text" v-model="opponent1"/>
+        <p>Оппонент #2</p>
+        <input type="text" v-model="opponent2"/>
+        <br>
+        <button @click="setDuelIsOn(true)">Начать дуэль</button>
+      </template>
+      <template v-else>
+        <sm-dice/>
+        <sm-timers/>
+      </template>
+    </div>
 <!--    <template v-if="countRounds !== winner.length">-->
 <!--      <template v-if="!showRoundEnd">-->
 <!--        <sm-dice/>-->
@@ -37,14 +53,16 @@
 import { computed } from 'vue'
 
 import SmHeader from '@/components/project/smHeader'
-// import SmDice from '@/components/project/smDice'
-// import SmTimers from '@/components/project/smTimers'
+import SmDice from '@/components/project/smDice'
+import SmTimers from '@/components/project/smTimers'
 
 // use
+import { useDuel } from '@/services/state/duel.ts'
 import { useUser } from '@/services/state/user.ts'
 import { useRound } from '@/services/state/round.ts'
 
 // const
+const { isOn, opponent1, opponent2, methodsDuel } = useDuel()
 const { activeUser } = useUser()
 const { showRoundEnd, activeRound, countRounds, winner, methodsRound } = useRound()
 
@@ -52,11 +70,17 @@ export default {
   name: 'App',
   components: {
     SmHeader,
-  //   SmDice,
-  //   SmTimers,
+    SmDice,
+    SmTimers,
   },
   setup () {
     return {
+      // duel
+      duelIsOn: isOn,
+      opponent1,
+      opponent2,
+      setDuelIsOn: methodsDuel.setIsOn,
+      //
       showRoundEnd,
       activeRound,
       countRounds,
@@ -75,9 +99,13 @@ export default {
 <style lang="scss">
 .app {
   min-width: 1024px;
-  background-color: cornflowerblue;
   overflow: hidden;
 
+  &__content {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+  }
 
 
 
