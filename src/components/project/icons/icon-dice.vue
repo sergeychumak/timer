@@ -1,6 +1,6 @@
 <template>
   <span class="icon-dice icon" @click="getRandomActiveUser">
-    <i class="mdi mdi-24px" :class="diceIcon"></i>
+    <i class="mdi mdi-48px" :class="diceIcon"></i>
   </span>
 </template>
 
@@ -10,7 +10,7 @@ import { useUser } from '@/services/state/user.ts'
 
 // const
 const {
-  activeUser,
+  // activeUser,
   methodsUser
 } = useUser()
 
@@ -48,6 +48,7 @@ export default {
           this.counter = 1
           this.runIncCounter = false
           methodsUser.getRandomActiveUser()
+          this.$emit('action-next')
         }
       }, 100)
     }
